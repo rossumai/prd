@@ -30,7 +30,9 @@ Deletes all objects in Rossum based on IDs in the mappping file. This operation 
 )
 @click.argument(
     "destination",
-    type=click.Choice([settings.TARGET_DIRNAME, settings.UNUSED_SCHEMAS]),
+    type=click.Choice(
+        [settings.SOURCE_DIRNAME, settings.TARGET_DIRNAME, settings.UNUSED_SCHEMAS]
+    ),
 )
 @coro
 async def purge_project_wrapper(destination):
